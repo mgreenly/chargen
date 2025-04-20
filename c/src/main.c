@@ -6,7 +6,7 @@ size_t ask(char *prompt, char **buffer_ptr, size_t *buffer_size, FILE *stream){
   char *buffer = *buffer_ptr;
   size_t chars_read = 0;
 
-  printf(prompt);
+  printf("%s", prompt);
   chars_read = getline(buffer_ptr, buffer_size, stream) - 1;
   buffer[chars_read] = '\0';
   return(chars_read);
