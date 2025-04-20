@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-size_t ask(char *prompt, char **buffer, size_t *buffer_size, FILE *stream){
+size_t ask(char *prompt, char **buffer_ptr, size_t *buffer_size, FILE *stream){
+  char *buffer = *buffer_ptr;
   size_t chars_read = 0;
 
   printf(prompt);
-
-  chars_read = getline(buffer, buffer_size, stream) - 1;
-  ((char *)(*buffer))[chars_read] = '\0';
+  chars_read = getline(buffer_ptr, buffer_size, stream) - 1;
+  buffer[chars_read] = '\0';
   return(chars_read);
 }
 
@@ -32,3 +32,4 @@ int main() {
 
     return 0;
 }
+
