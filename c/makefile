@@ -1,13 +1,11 @@
 
 bin/chargen: src/main.c
-	mkdir -p bin
-	$(CC) $(CFLAGS) -o $@ $<
-	@echo "========================================================================="
+	nix-build default.nix
 
 run: bin/chargen
 	clear
-	@./bin/chargen
+	@./result/bin/chargen
 
 PHONY: clean
 clean:
-	rm -rf bin
+	rm -rf result
