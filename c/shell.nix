@@ -1,18 +1,19 @@
 let
-  tarball = fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/tags/24.11.tar.gz";
-  pkgs = import tarball { config = {}; overlays = []; };
+  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz";
+  pkgs = import nixpkgs { config = {}; overlays = []; };
 in
 
 pkgs.mkShell {
 
   packages = with pkgs; [
-    coreutils-full
-    vim
+    libyaml
   ];
 
   nativeBuildInputs = with pkgs; [
+    vim
+    coreutils-full
     pkg-config
-    libyaml
+    cmake
   ];
 
   shellHook = with pkgs; ''

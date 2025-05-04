@@ -3,6 +3,8 @@
 #include <string.h>
 #include <yaml.h>
 
+#include "demo.h"
+
 size_t ask(char *prompt, char **buffer_ptr, size_t *buffer_size, FILE *stream){
   char *buffer = *buffer_ptr;
   size_t chars_read = 0;
@@ -18,15 +20,9 @@ int main() {
     size_t buffer_size = 256;
     size_t chars_read;
 
-   /* yaml_emitter_t emitter; */
-    /* yaml_emitter_initialize(&emitter); */
-    /* yaml_emitter_delete(&emitter); */
+    printf("demo version: %d.%d.%d\n", DEMO_VERSION_MAJOR, DEMO_VERSION_MINOR, DEMO_VERSION_PATCH);
 
     yaml_emitter_t emitter;
-    /* yaml_event_t event; */
-    /* struct fruit *f; */
-    /* char buffer[64]; */
-
     yaml_emitter_initialize(&emitter);
     yaml_emitter_set_output_file(&emitter, stdout);
     yaml_emitter_delete(&emitter);
