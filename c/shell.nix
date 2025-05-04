@@ -10,6 +10,7 @@ pkgs.mkShell {
 
   nativeBuildInputs = with pkgs; [
     pkg-config
+    libyaml
   ];
 
   shellHook = with pkgs; ''
