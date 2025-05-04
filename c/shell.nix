@@ -6,6 +6,8 @@ in
 pkgs.mkShell {
 
   packages = with pkgs; [
+    coreutils-full
+    vim
   ];
 
   nativeBuildInputs = with pkgs; [
